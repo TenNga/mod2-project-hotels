@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :home_pages, only: [:index]
  resources :bookings
   resources :guests
   resources :hotels, only: [:index, :show]

@@ -12,6 +12,7 @@ Room.destroy_all
 h1 = Hotel.create!(image: "", name: "Sheraton", city: "London", country: "England")
 h2 = Hotel.create!(image: "", name: "Hilton", city: "Sydney", country: "Australia")
 h3 = Hotel.create!(image: "", name: "Marriot", city: "New York", country: "United States")
+h4 = Hotel.create!(image: "", name: "Four Points", city: "Sydney", country: "Australia")
 
 ro1 = Room.create!(image: "", room_type: "Single King", rate: 100, hotel_id: h1.id)
 ro2 = Room.create!(image: "", room_type: "Double Twin", rate: 125, hotel_id: h2.id)
