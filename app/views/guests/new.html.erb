@@ -1,0 +1,12 @@
+<h1>Guests#new</h1>
+<p>Find me in app/views/guests/new.html.erb</p>
+<hr>
+<%= form_for @guest do |f| %>
+    <%= f.label "First Name:"%>
+    <%= f.text_field :first_name%> <br><hr>
+    <%= f.label "Last Name:"%>
+    <%= f.text_field :last_name%><br><hr>
+    <%= f.label :email%>
+    <%= f.text_field :email%><br><hr>
+    <%= f.submit "Create"%>
+<%end%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_144436) do
+ActiveRecord::Schema.define(version: 2019_09_30_152829) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "check_in_date"
@@ -57,10 +57,11 @@ ActiveRecord::Schema.define(version: 2019_09_30_144436) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "image"
-    t.string "type"
+    t.string "room_type"
     t.integer "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "hotel_id"
   end
 
   add_foreign_key "bookings", "guests"
