@@ -3,17 +3,9 @@
 <li>Room type: <%=@room.room_type%></li>
 <li>Cost per day: $<%=@room.rate%></li>
 
-<%= form_for @booking, url: '/bookings' do |f|%>
-    <%= f.hidden_field :guest_id, :value => @guest.id%>
-    <%= f.hidden_field :room_id, :value => @room.id%>
-    <%= f.label "Number of Guests"%>
-    <%= f.number_field :number_of_guest %>
-    <%= f.label "check In Date"%>
-    <%= f.date_field :check_in_date%>
-    <%= f.label "check Out Date"%>
-    <%= f.date_field :check_out_date%>
-    <%= f.hidden_field :booking_date, :value => Date.today%>
-    <%= f.hidden_field :cost, :value => 0%>
-    <%= f.submit "SEARCH HOTELS"%>
+<%= form_tag new_booking_path, method: :get do %>
+    <%= hidden_field_tag :room_id, @room.id%>
+    <%= submit_tag "BOOK THIS ROOM"%>
 <%end%>
+
 

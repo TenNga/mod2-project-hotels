@@ -4,34 +4,40 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
-    @guest = Guest.find(params[:guest_id].to_i)
-    @rooms = Room.all 
+    @booking = Booking.new 
+    @room_id = params[:room_id]
+    @guest_id = session[:user]
   end
 
   def create
     room = Room.find(params[:booking][:room_id])
-    
     number_of_day = check_date_diff(params[:booking]["check_in_date"],params[:booking]["check_out_date"])
     params[:booking][:cost] = number_of_day * room.rate
-
-
     booking = Booking.create(booking_params)
-    
     redirect_to booking_path(booking)
   end
 
   def show
     @booking = Booking.find(params[:id])
+    @guest_id = session[:user]
   end
 
   def edit
+    @booking = Booking.find(params[:id])
   end
 
   def update
+    booking = Booking.find(params[:id])
+    booking.update(booking_params)
+    booking.save 
+    redirect_to booking_path(booking)
   end
 
   def destroy
+    booking = Booking.find(params[:id])
+    guest_id = booking.guest.id 
+    booking.delete 
+    redirect_to guest_path(guest_id)
   end
 
   def check_date_diff(start_date_string,end_date_string)
