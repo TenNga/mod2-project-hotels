@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  
+  resources :sessions, only: [:index,:new, :create]
+  get '/sessions/logout', in: 'sessions#logout', as: 'logout_session'
   resources :home_pages, only: [:index]
- resources :bookings
+  resources :bookings
   resources :guests
   resources :hotels, only: [:index, :show]
   resources :rooms, only: [:index, :show]

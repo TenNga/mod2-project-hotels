@@ -1,4 +1,5 @@
 class HomePagesController < ApplicationController
+  before_action :valid?
   def index
     @rooms = Room.all
     # @uniq_cities = hotels.select(:city).uniq.sort
@@ -6,6 +7,7 @@ class HomePagesController < ApplicationController
     @cities = Hotel.all.map{|h| h.city}
     @uniq_cities = @cities.uniq.sort
     if params[:city]
+      # byebug
       @hotels = Hotel.select{|h| h.city == params[:city]}
       # byebug
     else
@@ -13,4 +15,5 @@ class HomePagesController < ApplicationController
       # byebug
     end
   end
+
 end

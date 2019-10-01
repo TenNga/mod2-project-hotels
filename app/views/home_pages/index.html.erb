@@ -1,5 +1,10 @@
 <h1>Welcome To Hotel Booking</h1>
 <hr> 
+<% if session[:user]%>
+    <%= button_to "LOGOUT", logout_session_path, method: :get%>
+    <%= button_to "ACCOUT", guest_path(Guest.find(session[:user])), method: :get%>
+<%end%>
+<hr>
 <%= form_with url: home_pages_path, method: :get, local: true do |f|%>
     <%= f.select :city, @uniq_cities%>
     <%= f.submit "SEARCH HOTELS"%>
@@ -8,7 +13,10 @@
 
     <% @hotels.each do |hotel|%>
         <% hotel.rooms.each do |room|%> 
-            <h1><%=link_to room.room_type, room_path(room.id)%></h1>
+            <h3><%=link_to room.room_type, room_path(room.id)%></h3>
+            <h3>$<%= room.rate%></h3>
+            <h3><%=link_to room.hotel.name, hotel_path(room.hotel)%></h3>
+             <hr>
         <%end%>
     <%end%>
 

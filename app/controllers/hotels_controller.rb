@@ -1,4 +1,5 @@
 class HotelsController < ApplicationController
+  before_action :valid?
   def index
     @hotels = Hotel.all
   end

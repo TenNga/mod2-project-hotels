@@ -4,7 +4,6 @@
 <h2>Name: <%= @guest.first_name%> <%= @guest.last_name%></h2>
 <h2>Email: <%= @guest.email%></h2>
 <hr>
-<%=form_tag(new_booking_path, method: :get) do %>
-    <%= hidden_field_tag :guest_id, @guest.id%>
-    <%= submit_tag "Book A Room"%>
-<%end%>
+<hr>
+<%= button_to "Edited Booking", >
+<hr>
