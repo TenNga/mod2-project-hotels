@@ -1,9 +1,15 @@
 <h1>Bookings#show</h1>
 <p>Find me in app/views/bookings/show.html.erb</p>
 <hr>
+<%= button_to "MY ACCOUNT", guest_path(@guest_id), method: :get%>
+
+<hr>
 <h1>CheckIn Date: <%=@booking.check_in_date%></h1>
 <h1>CheckOut Date: <%=@booking.check_out_date%></h1>
 <h1>Number of Guest: <%=@booking.number_of_guest%></h1>
 <h1>Cost: $<%=@booking.cost%></h1>
 <h1>Guest First Name: <%=@booking.guest.first_name%></h1>
 <h1>Room Type: <%=@booking.room.room_type%></h1>
+<hr>
+<%= button_to "EDIT BOOKING", edit_booking_path(@booking), method: :get%>
+<%= button_to "DELETE BOOKING", booking_path(@booking), method: :delete%>
