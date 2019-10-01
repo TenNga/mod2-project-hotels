@@ -1,12 +1,19 @@
 <h1>Reviews</h1>
+<br>
+<br>
 
+<div class="ui cards">
 <%@guest.reviews.each do |review|%>
-    <hr>
-        <h1>Title: <%=review.title%><h1>
-        <h1>Hotel: <%=review.hotel.name%><h1>
-        <h1>City: <%=review.hotel.city%><h1>
-        <h1>Stars: <%=review.star%><h1>
-        <h1>Content: <%=review.content%><h1>
+<div class="ui card">
+        <div class="content">
+          <div class="header"><%=review.title%></div>
+          <div class="meta"><%=review.hotel.name%>, <%=review.hotel.city%></div>
+          <div class="meta"><%=review.created_at.strftime("%B %d %Y")%></div>
+          <div class="meta"><%=review.star%> Stars</div>
+          <div class="description">
+            <p><%=review.content%></p>
+          </div>
+        </div>
+      </div>
 <%end%>
-
-
+</div>

@@ -35,90 +35,19 @@
 
 
 <% @bookings.each do |booking|%>
-
-    <h3>Hotel Name: <%= link_to booking.room.hotel.name, hotel_path(booking.room.hotel)%></h3>
-    <h3>Checkin Date: <%=booking.check_in_date%></h3>
-    <h3>Checkout Date: <%=booking.check_out_date%></h3>
-    <h3>Cost: <%=booking.cost%></h3>
-    <%= button_to "EDIT BOOKING", edit_booking_path(booking), method: :get%>
-    <%= button_to "DELETE BOOKING", booking_path(booking), method: :delete%>
-    <%=form_tag new_review_path, method: :get do%>
-        <%=hidden_field_tag :hotel_id, booking.room.hotel.id%>
-
-        <%= submit_tag "WRITE A NEW REVIEW"%>
-    <%end%>
+<hr>
+   <h3>Hotel Name: <%= link_to booking.room.hotel.name, hotel_path(booking.room.hotel)%></h3>
+   <h3>Checkin Date: <%=booking.check_in_date%></h3>
+   <h3>Checkout Date: <%=booking.check_out_date%></h3>
+   <h3>Cost: <%=booking.cost%></h3>
+   <%= button_to "EDIT BOOKING", edit_booking_path(booking), method: :get%>
+   <%= button_to "DELETE BOOKING", booking_path(booking), method: :delete%>
+   <%=form_tag new_review_path, method: :get do%>
+       <%=hidden_field_tag :hotel_id, booking.room.hotel.id%>
+       <%= submit_tag "WRITE A NEW REVIEW"%>
+   <%end%>
 <hr>
 <%end%>
 
-<div class="ui link cards">
-  <div class="card">
-    <div class="image">
-      <img src="/images/avatar2/large/matthew.png">
-    </div>
-    <div class="content">
-      <div class="header">Matt Giampietro</div>
-      <div class="meta">
-        <a>Friends</a>
-      </div>
-      <div class="description">
-        Matthew is an interior designer living in New York.
-      </div>
-    </div>
-    <div class="extra content">
-      <span class="right floated">
-        Joined in 2013
-      </span>
-      <span>
-        <i class="user icon"></i>
-        75 Friends
-      </span>
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="/images/avatar2/large/molly.png">
-    </div>
-    <div class="content">
-      <div class="header">Molly</div>
-      <div class="meta">
-        <span class="date">Coworker</span>
-      </div>
-      <div class="description">
-        Molly is a personal assistant living in Paris.
-      </div>
-    </div>
-    <div class="extra content">
-      <span class="right floated">
-        Joined in 2011
-      </span>
-      <span>
-        <i class="user icon"></i>
-        35 Friends
-      </span>
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="/images/avatar2/large/elyse.png">
-    </div>
-    <div class="content">
-      <div class="header">Elyse</div>
-      <div class="meta">
-        <a>Coworker</a>
-      </div>
-      <div class="description">
-        Elyse is a copywriter working in New York.
-      </div>
-    </div>
-    <div class="extra content">
-      <span class="right floated">
-        Joined in 2014
-      </span>
-      <span>
-        <i class="user icon"></i>
-        151 Friends
-      </span>
-    </div>
-  </div>
-</div>
+
 
