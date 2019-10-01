@@ -4,15 +4,9 @@ class BookingsController < ApplicationController
   end
 
   def new
-<<<<<<< HEAD
     @booking = Booking.new 
     @room_id = params[:room_id]
     @guest_id = session[:user]
-=======
-    @booking = Booking.new
-    @guest = Guest.find(params[:guest_id].to_i)
-    @rooms = Room.all 
->>>>>>> 925b2560578f591e68e85539df69fa158bbbe744
   end
 
   def create
