@@ -9,7 +9,8 @@ class GuestsController < ApplicationController
 
   def create
     guest = Guest.create(guest_params)
-    redirect_to guest_path(guest) 
+    session[:user] = guest.id 
+    redirect_to home_pages_path
   end
 
   def show
@@ -27,6 +28,6 @@ class GuestsController < ApplicationController
 
   private 
   def guest_params
-    params.require(:guest).permit(:first_name, :last_name, :email)
+    params.require(:guest).permit(:first_name, :last_name, :email,:password)
   end
 end
