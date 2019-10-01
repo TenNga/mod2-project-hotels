@@ -9,7 +9,7 @@
 <%= button_to "Existing Reviews", reviews_path, method: :get%>
 <% @bookings.each do |booking|%>
 <hr>
-    <h3>Hotel Name: <%= booking.room.hotel.name%></h3>
+    <h3>Hotel Name: <%= link_to booking.room.hotel.name, hotel_path(%></h3>
     <h3>Checkin Date: <%=booking.check_in_date%></h3>
     <h3>Checkout Date: <%=booking.check_out_date%></h3>
     <h3>Cost: <%=booking.cost%></h3>
