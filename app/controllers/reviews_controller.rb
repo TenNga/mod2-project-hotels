@@ -2,8 +2,8 @@ class ReviewsController < ApplicationController
     before_validation :valid?
 
     def index
-        byebug
-        @review = []
+        # byebug
+        @review = "checking review"
     end
 
 

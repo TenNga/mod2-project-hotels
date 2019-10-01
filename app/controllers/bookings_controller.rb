@@ -4,19 +4,15 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
-    byebug
-    @guest = Guest.find(params[:guest_id].to_i)
-    @rooms = Room.all 
+    
   end
 
   def create
-    
     room = Room.find(params[:booking][:room_id])
     
     number_of_day = check_date_diff(params[:booking]["check_in_date"],params[:booking]["check_out_date"])
     params[:booking][:cost] = number_of_day * room.rate
-  byebug
+
 
     booking = Booking.create(booking_params)
     
