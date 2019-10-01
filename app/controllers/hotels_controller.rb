@@ -6,6 +6,6 @@ class HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find(params[:id])
-
+    @i=0
   end
 end

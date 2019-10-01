@@ -3,9 +3,10 @@
 <hr>
 
 <%=form_for @review do |review|%>
-    <h1>Title: <%=review.text_field :title%><h1>
+    <h1>Title: <%=review.text_field :title%></h1>
     <h1>Stars: <%=review.select :star, @stars%></h1>
     <h1>Content: <%=review.text_area :content%></h1>
-    <%=review.hidden_field :hotel_id, :value => params[:hotel_id].to_i%>
+    <%=review.hidden_field :hotel_id, :value=> params[:hotel_id].to_i%>
     <h1><%=review.submit "Post Review"%></h1>
-<%end%>
+
+      <%end%>

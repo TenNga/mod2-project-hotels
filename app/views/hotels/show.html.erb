@@ -1,10 +1,10 @@
-<h1>Hotels#show</h1>
-<li>Name: <%=@hotel.name%></li>
-<li>Stars: <%=@hotel.reviews.average(:star)%></li>
-<li>City: <%=@hotel.city%></li>
-<li>Country: <%=@hotel.country%></li>
-
- 
-
-
-
+<h1>Hotel Information</h1>
+<h2>Name: <%=@hotel.name%></h2>
+<h2>City: <%=@hotel.city%></h2>
+<h2>Country: <%=@hotel.country%></h2>
+<h2>Stars: 
+        <%while @i <= @hotel.reviews.average(:star)%>
+        <i class="star icon"></i>
+            <%@i += 1%>
+        <%end%>
+</h2>

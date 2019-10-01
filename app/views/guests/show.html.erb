@@ -9,15 +9,18 @@
 <%= button_to "Existing Reviews", reviews_path, method: :get%>
 <% @bookings.each do |booking|%>
 <hr>
-    <h3>Hotel Name: <%= link_to booking.room.hotel.name, hotel_path(%></h3>
-    <h3>Checkin Date: <%=booking.check_in_date%></h3>
-    <h3>Checkout Date: <%=booking.check_out_date%></h3>
-    <h3>Cost: <%=booking.cost%></h3>
-    <%= button_to "Edit Booking", edit_booking_path(booking),method: :get%>
-    <%=form_tag new_review_path, method: :get do%>
-        <%=hidden_field_tag :hotel_id, booking.room.hotel.id%>
-
-        <%= submit_tag "WRITE A NEW REVIEW"%>
-    <%end%>
+   <h3>Hotel Name: <%= link_to booking.room.hotel.name, hotel_path(booking.room.hotel)%></h3>
+   <h3>Checkin Date: <%=booking.check_in_date%></h3>
+   <h3>Checkout Date: <%=booking.check_out_date%></h3>
+   <h3>Cost: <%=booking.cost%></h3>
+   <%= button_to "EDIT BOOKING", edit_booking_path(booking), method: :get%>
+   <%= button_to "DELETE BOOKING", booking_path(booking), method: :delete%>
+   <%=form_tag new_review_path, method: :get do%>
+       <%=hidden_field_tag :hotel_id, booking.room.hotel.id%>
+       <%= submit_tag "WRITE A NEW REVIEW"%>
+   <%end%>
 <hr>
 <%end%>
+
+
+
