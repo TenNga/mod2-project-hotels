@@ -1,14 +1,41 @@
-<h1>Guests#show</h1>
-<p>Find me in app/views/guests/show.html.erb</p>
-<hr>
-<%= button_to "Search Hotel", home_pages_path, method: :get%>
-<hr>
-<h2>Name: <%= @guest.first_name%> <%= @guest.last_name%></h2>
-<h2>Email: <%= @guest.email%></h2>
-<hr>
-<%= button_to "Existing Reviews", reviews_path, method: :get%>
+<div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
+   <h1>Account Information</h1> 
+</div>
+
+    <div class="top menu" style="text-align:right; margin:5px 0px">
+        <% if session[:user]%>
+        <button class="ui black basic button" disabled>
+            <%=Guest.find(session[:user]).first_name%>
+        </button>
+        <button class="ui inverted red button">
+                <%= link_to "LOGOUT", logout_session_path, method: :get%>
+        </button>
+        <%end%>
+    </div>
+    <div class="search button" style="text-align:left">
+        <button class="ui inverted primary button" >
+            <%= link_to "Search Hotel", home_pages_path, method: :get%>
+        </button>
+        <button class="ui inverted primary button" >
+            <%= link_to "Existing Reviews", reviews_path, method: :get%>
+            </button>
+    </div>
+<br>
+
+<div class="ui one column"  style="margin:0px 200px">
+        <div class="column">
+          <div class="ui raised segment">
+            <a class="ui blue ribbon label">Account Details</a>
+            <h3><%= @guest.first_name%> <%= @guest.last_name%></h3>
+            <h3>Email: <%= @guest.email%></h3>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
 <% @bookings.each do |booking|%>
-<hr>
+
     <h3>Hotel Name: <%= link_to booking.room.hotel.name, hotel_path(booking.room.hotel)%></h3>
     <h3>Checkin Date: <%=booking.check_in_date%></h3>
     <h3>Checkout Date: <%=booking.check_out_date%></h3>
@@ -22,4 +49,76 @@
     <%end%>
 <hr>
 <%end%>
+
+<div class="ui link cards">
+  <div class="card">
+    <div class="image">
+      <img src="/images/avatar2/large/matthew.png">
+    </div>
+    <div class="content">
+      <div class="header">Matt Giampietro</div>
+      <div class="meta">
+        <a>Friends</a>
+      </div>
+      <div class="description">
+        Matthew is an interior designer living in New York.
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        Joined in 2013
+      </span>
+      <span>
+        <i class="user icon"></i>
+        75 Friends
+      </span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="image">
+      <img src="/images/avatar2/large/molly.png">
+    </div>
+    <div class="content">
+      <div class="header">Molly</div>
+      <div class="meta">
+        <span class="date">Coworker</span>
+      </div>
+      <div class="description">
+        Molly is a personal assistant living in Paris.
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        Joined in 2011
+      </span>
+      <span>
+        <i class="user icon"></i>
+        35 Friends
+      </span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="image">
+      <img src="/images/avatar2/large/elyse.png">
+    </div>
+    <div class="content">
+      <div class="header">Elyse</div>
+      <div class="meta">
+        <a>Coworker</a>
+      </div>
+      <div class="description">
+        Elyse is a copywriter working in New York.
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        Joined in 2014
+      </span>
+      <span>
+        <i class="user icon"></i>
+        151 Friends
+      </span>
+    </div>
+  </div>
+</div>
 

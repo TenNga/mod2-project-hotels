@@ -1,23 +1,55 @@
 <h1>Welcome To Hotel Booking</h1>
-<hr> 
+ 
+<div class="top menu" style="text-align:right">
 <% if session[:user]%>
-    <%= button_to "LOGOUT", logout_session_path, method: :get%>
-    <%= button_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+<button class="positive ui button">
+    <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+</button>
+<button class="negative ui button">
+    <%= link_to "LOGOUT", logout_session_path, method: :get%>
+</button>
+</div>
+    
+    
 <%end%>
-<hr>
+
+<div class="search" style="text-align: left">
 <%= form_with url: home_pages_path, method: :get, local: true do |f|%>
     <%= f.select :city, @uniq_cities%>
-    <%= f.submit "SEARCH HOTELS"%>
+    <div class="ui blue submit button">
+            <%= f.submit "SEARCH HOTELS"%>
+    </div>
 <%end%>
-<hr>
+</div>
+<br>
 
-    <% @hotels.each do |hotel|%>
+
+    <div class="ui cards">
+        <% @hotels.each do |hotel|%>
         <% hotel.rooms.each do |room|%> 
-            <h3><%=link_to room.room_type, room_path(room.id)%></h3>
-            <h3>$<%= room.rate%></h3>
-            <h3><%=link_to room.hotel.name, hotel_path(room.hotel)%></h3>
-             <hr>
-        <%end%>
+    
+            <div class="card" >
+              <div class="content">
+                <div class="header">
+                        Hotel Name: <%=link_to room.hotel.name, hotel_path(room.hotel)%>
+                </div>
+                <div class="header">
+                        Room Type: <%=link_to room.room_type, room_path(room.id)%>
+                    </div>
+                <div class="meta">
+                  <%= room.hotel.city%>
+                </div>
+                <div class="description">
+                        $<%= room.rate%>
+                </div>
+              </div>
+              <div class="extra content">
+                      <button class="ui primary basic button">
+                          <%=link_to "Book", room_path(room.id)%>
+                        </button>
+              </div>
+            </div>
+          
     <%end%>
-
-
+    <%end%>
+</div>
