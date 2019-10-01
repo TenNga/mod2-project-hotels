@@ -23,3 +23,4 @@ ro4 = Room.create!(image: "", room_type: "Suite", rate: 250, hotel_id: h3.id)
 re1 = Review.create!(title: "Terrible!", star: 2 , content: "I hated it!", hotel_id: h1.id, guest_id: 1)
 re2 = Review.create!(title: "Amazing!", star: 5, content: "I loved it!", hotel_id: h2.id, guest_id: 1)
 re3 = Review.create!(title: "Excellent", star: 4, content: "Great!", hotel_id: h2.id, guest_id: 1)
+c
