@@ -3,7 +3,7 @@
 <li>Room type: <%=@room.room_type%></li>
 <li>Cost per day: $<%=@room.rate%></li>
 
-<%= form_for @booking, url: '/bookings' do |f|%>
+<%= form_for @booking, url: new_booking_path do |f|%>
     <%= f.hidden_field :guest_id, :value => @guest.id%>
     <%= f.hidden_field :room_id, :value => @room.id%>
     <%= f.label "Number of Guests"%>

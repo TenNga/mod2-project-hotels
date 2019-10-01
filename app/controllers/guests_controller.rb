@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-  before_action :valid?
+  before_action :valid?, except: [:new,:create]
   def index
     @guests = Guest.all
   end

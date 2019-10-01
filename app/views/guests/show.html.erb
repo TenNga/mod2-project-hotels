@@ -1,15 +1,18 @@
 <h1>Guests#show</h1>
 <p>Find me in app/views/guests/show.html.erb</p>
 <hr>
+<%= button_to "Search Hotel", home_pages_path, method: :get%>
+<hr>
 <h2>Name: <%= @guest.first_name%> <%= @guest.last_name%></h2>
 <h2>Email: <%= @guest.email%></h2>
 <hr>
-<hr>
-<hr>
 <% @bookings.each do |booking|%>
 <hr>
-    <%=booking.check_in_date%>
-    <%=booking.check_out_date%>
-    <%=booking.cost%>
+    <h3>Hotel Name: <%= booking.room.hotel.name%></h3>
+    <h3>Checkin Date: <%=booking.check_in_date%></h3>
+    <h3>Checkout Date: <%=booking.check_out_date%></h3>
+    <h3>Cost: <%=booking.cost%></h3>
+    <%= button_to "Edit Booking", edit_booking_path(booking),method: :get%>
+    <%= button_to "Write Review", edit_booking_path(booking),method: :get%>
 <hr>
 <%end%>
