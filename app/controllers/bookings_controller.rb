@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :valid?
   def index
   end
 

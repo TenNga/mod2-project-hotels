@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :valid?, except: [:index,:new, :create]
   def index
     
   end

@@ -1,4 +1,5 @@
 class GuestsController < ApplicationController
+  before_action :valid?
   def index
     @guests = Guest.all
   end
@@ -15,6 +16,7 @@ class GuestsController < ApplicationController
 
   def show
     @guest = Guest.find(params[:id])
+    @bookings = @guest.bookings
   end
 
   def edit

@@ -1,4 +1,5 @@
 class HomePagesController < ApplicationController
+  before_action :valid?
   def index
     @rooms = Room.all
     # @uniq_cities = hotels.select(:city).uniq.sort

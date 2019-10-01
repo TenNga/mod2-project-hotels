@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :valid?
   def index
     @rooms = Room.all
   end

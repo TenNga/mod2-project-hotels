@@ -2,14 +2,11 @@
 <hr> 
 <% if session[:user]%>
     <%= button_to "LOGOUT", logout_session_path, method: :get%>
+    <%= button_to "ACCOUT", guest_path(Guest.find(session[:user])), method: :get%>
 <%end%>
 <hr>
 <%= form_with url: home_pages_path, method: :get, local: true do |f|%>
     <%= f.select :city, @uniq_cities%>
-    <%= f.label "check In Date"%>
-    <%= f.text_field :check_in_date%>
-    <%= f.label "check Out Date"%>
-    <%= f.text_field :check_out_date%>
     <%= f.submit "SEARCH HOTELS"%>
 <%end%>
 <hr>
