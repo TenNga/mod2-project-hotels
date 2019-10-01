@@ -6,6 +6,7 @@
 <h2>Name: <%= @guest.first_name%> <%= @guest.last_name%></h2>
 <h2>Email: <%= @guest.email%></h2>
 <hr>
+<%= button_to "Existing Reviews", reviews_path, method: :get%>
 <% @bookings.each do |booking|%>
 <hr>
     <h3>Hotel Name: <%= booking.room.hotel.name%></h3>

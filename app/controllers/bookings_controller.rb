@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    byebug
     @guest = Guest.find(params[:guest_id].to_i)
     @rooms = Room.all 
   end

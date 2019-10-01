@@ -1,1 +1,12 @@
-Reviews
+<h1>Reviews</h1>
+<%= button_to "Write a new review", new_reviews_path%>
+
+<%@guest.reviews.each do |review|%>
+    <hr>
+        <h1>Title: <%=review.title%><h1>
+        <h1>Hotel: <%=review.hotel.name%><h1>
+        <h1>City: <%=review.hotel.city%><h1>
+        <h1>Stars: <%=review.star%><h1>
+        <h1>Content: <%=review.content%><h1>
+<%end%>
+
