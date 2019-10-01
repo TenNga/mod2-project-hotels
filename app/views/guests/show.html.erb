@@ -15,9 +15,9 @@
     <h3>Cost: <%=booking.cost%></h3>
     <%= button_to "Edit Booking", edit_booking_path(booking),method: :get%>
     <%=form_tag new_review_path, method: :get do%>
-        <%=hidden_field_tag :hotel_id, booking.room.hotel.id%>c
+        <%=hidden_field_tag :hotel_id, booking.room.hotel.id%>
 
-        <%= submit_tag "Write a new review"%>
+        <%= submit_tag "WRITE A NEW REVIEW"%>
     <%end%>
 <hr>
 <%end%>
