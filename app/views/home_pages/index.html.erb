@@ -2,7 +2,7 @@
 <hr> 
 <% if session[:user]%>
     <%= button_to "LOGOUT", logout_session_path, method: :get%>
-    <%= button_to "ACCOUT", guest_path(Guest.find(session[:user])), method: :get%>
+    <%= button_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
 <%end%>
 <hr>
 <%= form_with url: home_pages_path, method: :get, local: true do |f|%>

@@ -1,6 +1,10 @@
 <h1>Hotels#show</h1>
 <li>Name: <%=@hotel.name%></li>
+<li>Stars: <%=@hotel.reviews.average(:star)%></li>
 <li>City: <%=@hotel.city%></li>
 <li>Country: <%=@hotel.country%></li>
+
+ 
+
 
 
