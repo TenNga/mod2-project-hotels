@@ -14,6 +14,6 @@ class HomePagesController < ApplicationController
       @hotels = Hotel.all
       # byebug
     end
-  end
+  end 
 
 end

@@ -1,4 +1,5 @@
-<h1>Reviews</h1>
+<div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
+    <h1>Reviews</h1></div>
 <br>
 <br>
 
@@ -11,7 +12,9 @@
           <div class="meta"><%=review.created_at.strftime("%B %d %Y")%></div>
           <div class="meta"><%=review.star%> Stars</div>
           <div class="description">
-            <p><%=review.content%></p>
+            <p style="overflow: auto">
+              <%=review.content%>
+            </p>
           </div>
         </div>
       </div>
