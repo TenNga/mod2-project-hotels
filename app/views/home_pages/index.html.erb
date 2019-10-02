@@ -1,26 +1,28 @@
-<h1>Welcome To Hotel Booking</h1>
- 
-<div class="top menu" style="text-align:right">
-<% if session[:user]%>
-<button class="positive ui button">
-    <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
-</button>
-<button class="negative ui button">
-    <%= link_to "LOGOUT", logout_session_path, method: :get%>
-</button>
+<div class="page-heading">
+        <h1>Welcome To Hotel Booking</h1>
 </div>
-    
-    
-<%end%>
-
-<div class="search" style="text-align: left">
-<%= form_with url: home_pages_path, method: :get, local: true do |f|%>
-    <%= f.select :city, @uniq_cities%>
-    <div class="ui blue submit button">
-            <%= f.submit "SEARCH HOTELS"%>
+ <div class="menu-container">
+    <div class="top-menu">
+        <% if session[:user]%>
+            <button class="positive ui button">
+                <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+            </button>
+            <button class="negative ui button">
+                <%= link_to "LOGOUT", logout_session_path, method: :get%>
+            </button>
+        <%end%>
     </div>
-<%end%>
-</div>
+ </div>  
+       
+    <div class="search" >
+    <%= form_with url: home_pages_path, method: :get, local: true do |f|%>
+    <%= f.select :city, @uniq_cities,{}, {:class=> "search_hotel"}%>
+        <div class="ui blue submit button">
+                <%= f.submit "SEARCH HOTELS"%>
+        </div>
+    <%end%>
+    </div>
+
 <br>
 
 
@@ -53,3 +55,7 @@
     <%end%>
     <%end%>
 </div>
+
+<video autoplay muted loop id="myVideo">
+        <source src="rain.mp4" type="video/mp4">
+</video>
