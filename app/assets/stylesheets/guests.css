@@ -1,0 +1,24 @@
+.field {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.label{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.submit{
+    padding: 12px 20px;
+    border-radius: 5px;
+}
+
+.formSignUp {
+    margin: 0px 10%;
+}

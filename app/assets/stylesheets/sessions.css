@@ -1,0 +1,28 @@
+body{
+    background-image: url(https://mocah.org/uploads/posts/112920-miami-south-beach-hotel-pool-sunbed-water-palm-sky-sea-ocean-water-travel-vacation-booking.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-position-y: -1400px !important;
+    background-position-x: center !important;
+}
+
+.sessionHeading {
+    margin-top: 50px;
+}
+
+.sessionHeading h1 {
+    font-size: 50px;
+    text-shadow: 3px 1px 6px rgb(69, 69, 69);
+    color: rgb(230, 230, 230);
+}
+
+.sessionHeading p {
+    font-weight: bold;
+}
+
+.loginBox {
+    margin-top: 6% !important;
+}
+
+.ui.placeholder.segment{
+    background: rgb(235, 235, 235); opacity: 0.8 !important;
+}
