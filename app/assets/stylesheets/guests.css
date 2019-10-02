@@ -20,5 +20,12 @@
 }
 
 .formSignUp {
-    margin: 0px 10%;
+    margin: auto 10%;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: auto auto auto auto auto;
+}
+.row {
+    display: grid;
+    grid-template-columns: 10% auto;
 }

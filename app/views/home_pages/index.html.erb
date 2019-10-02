@@ -1,68 +1,72 @@
-<div class="page-heading">
-        <h1>Welcome To Hotel Booking</h1>
-</div>
- <div class="menu-container">
-    <div class="top-menu">
-        <% if session[:user]%>
-            <button class="positive ui button">
-                <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
-            </button>
-            <button class="negative ui button">
-                <%= link_to "LOGOUT", logout_session_path, method: :get%>
-            </button>
-        <%end%>
-    </div>
- </div>  
-       
-    <div class="search" >
-    <%= form_with url: home_pages_path, method: :get, local: true do |f|%>
-    <%= f.select :city, @uniq_cities,{}, {:class=> "search_hotel"}%>
-        <div class="ui blue submit button">
-                <%= f.submit "SEARCH HOTELS"%>
+<div class="full-container">
+        <div class="page-heading">
+                <h1>Welcome To Hotel Booking</h1>
         </div>
-    <%end%>
-    </div>
-
-<br>
-
-<%if params[:city]%>
-<hr>
-    <h1>Hotels in <%=params[:city]%></h1>
-<hr>
-<%else%>
-<hr>
-    <h1>All Hotels</h1>
-<hr>
-<%end%>
-<br>
-
-    <div class="ui cards">
-        <% @hotels.each do |hotel|%>
-        <% hotel.rooms.each do |room|%>     
-    
-            <div class="card" >
-              <div class="content">
-                <div class="header">
-                        Hotel Name: <%=link_to room.hotel.name, hotel_path(room.hotel)%>
-                </div>
-                <div class="header">
-                        Room Type: <%=link_to room.room_type, room_path(room.id)%>
-                    </div>
-                <div class="meta">
-                  <%= room.hotel.city%>
-                </div>
-                <div class="description">
-                        $<%= room.rate%> / day
-                </div>
-              </div>
-              <div class="extra content">
-                      <button class="ui primary basic button">
-                          <%=link_to "Book", room_path(room.id)%>
-                        </button>
-              </div>
+         <div class="menu-container">
+            <div class="top-menu">
+                <% if session[:user]%>
+                    <button class="positive ui button">
+                        <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+                    </button>
+                    <button class="negative ui button">
+                        <%= link_to "LOGOUT", logout_session_path, method: :get%>
+                    </button>
+                <%end%>
             </div>
-          
-    <%end%>
-    <%end%>
+         </div>  
+               
+            <div class="search" >
+            <%= form_with url: home_pages_path, method: :get, local: true do |f|%>
+            <%= f.select :city, @uniq_cities,{}, {:class=> "search_hotel"}%>
+                <div class="ui blue submit button">
+                        <%= f.submit "SEARCH HOTELS"%>
+                </div>
+            <%end%>
+            </div>
+        
+        <br>
+        
+        <%if params[:city]%>
+        <hr>
+            <h1>Hotels in <%=params[:city]%></h1>
+        <hr>
+        <%else%>
+        <hr>
+            <h1>All Hotels</h1>
+        <hr>
+        <%end%>
+        <br>
+        
+            <div class="ui cards">
+                <% @hotels.each do |hotel|%>
+                <%rooms = hotel.rooms.order(rate: :ASC)%>
+                    <% rooms.each do |room|%>     
+            
+                    <div class="card" >
+                      <div class="content">
+                        <div class="header">
+                                Hotel Name: <%=link_to room.hotel.name, hotel_path(room.hotel)%>
+                        </div>
+                        <div class="header">
+                                Room Type: <%=link_to room.room_type, room_path(room.id)%>
+                            </div>
+                        <div class="meta">
+                          <%= room.hotel.city%>
+                        </div>
+                        <div class="description">
+                                $<%= room.rate%> / day
+                        </div>
+                      </div>
+                      <div class="extra content">
+                              <button class="ui primary basic button">
+                                  <%=link_to "Book", room_path(room.id)%>
+                                </button>
+                      </div>
+                    </div>
+                  
+            <%end%>
+            <%end%>
+        </div>
+        
+        
 </div>
-
