@@ -25,10 +25,20 @@
 
 <br>
 
+<%if params[:city]%>
+<hr>
+    <h1>Hotels in <%=params[:city]%></h1>
+<hr>
+<%else%>
+<hr>
+    <h1>All Hotels</h1>
+<hr>
+<%end%>
+<br>
 
     <div class="ui cards">
         <% @hotels.each do |hotel|%>
-        <% hotel.rooms.each do |room|%> 
+        <% hotel.rooms.each do |room|%>     
     
             <div class="card" >
               <div class="content">
@@ -42,7 +52,7 @@
                   <%= room.hotel.city%>
                 </div>
                 <div class="description">
-                        $<%= room.rate%>
+                        $<%= room.rate%> / day
                 </div>
               </div>
               <div class="extra content">
