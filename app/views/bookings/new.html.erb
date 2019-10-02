@@ -1,17 +1,32 @@
 <div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
-        <h1>New Booking</h1></div>
-        
+<h1>Create New Booking</h1>
+</div>
+
+    <div class="top menu" style="text-align:right; margin:5px 0px">
+        <% if session[:user]%>
+        <button class="ui black basic button" disabled>
+            <%=Guest.find(session[:user]).first_name%>
+        </button>
+        <button class="ui inverted red button">
+                <%= link_to "LOGOUT", logout_session_path, method: :get%>
+        </button>
+        <%end%>
+    </div>
+
 <hr>
 <%= form_for @booking do |f|%>
     <%= f.hidden_field :guest_id, :value => @guest_id%>
     <%= f.hidden_field :room_id, :value => @room_id%>
-    <%= f.label "Number of Guests"%>
-    <%= f.number_field :number_of_guest %> <hr> <br>
-    <%= f.label "check In Date"%>
-    <%= f.date_field :check_in_date%> <hr> <br>
-    <%= f.label "check Out Date"%>
-    <%= f.date_field :check_out_date%> <hr> <br>
+    <%= f.label "Number of Guests", class: "label"%>
+    <%= f.number_field :number_of_guest, placeholder: "Number of guest", class: "field"%>  <br>
+    <%= f.label "check In Date", class: "label"%>
+    <%= f.date_field :check_in_date, class: "field"%> <br>
+    <%= f.label "check Out Date", class: "label"%>
+    <%= f.date_field :check_out_date, class: "field"%> <br>
     <%= f.hidden_field :booking_date, :value => Date.today%>
     <%= f.hidden_field :cost, :value => 0%>
-    <%= f.submit "BOOK"%>
+    <button class="ui black basic button">
+           <%= f.submit "BOOK"%>
+        </button>
+    
 <%end%>

@@ -10,17 +10,25 @@ Hotel.destroy_all
 Room.destroy_all
 Review.destroy_all
 
-h1 = Hotel.create!(image: "", name: "Sheraton", city: "London", country: "England")
-h2 = Hotel.create!(image: "", name: "Hilton", city: "Sydney", country: "Australia")
-h3 = Hotel.create!(image: "", name: "Marriot", city: "New York", country: "United States")
-h4 = Hotel.create!(image: "", name: "Four Points", city: "Sydney", country: "Australia")
+# h1 = Hotel.create!(image: "", name: "Sheraton", city: "London", country: "England")
+# h2 = Hotel.create!(image: "", name: "Hilton", city: "Sydney", country: "Australia")
+# h3 = Hotel.create!(image: "", name: "Marriot", city: "New York", country: "United States")
+# h4 = Hotel.create!(image: "", name: "Four Points", city: "Sydney", country: "Australia")
 
-ro1 = Room.create!(image: "", room_type: "Single King", rate: 100, hotel_id: h1.id)
-ro2 = Room.create!(image: "", room_type: "Double Twin", rate: 125, hotel_id: h2.id)
-ro3 = Room.create!(image: "", room_type: "Double Queen", rate: 175, hotel_id: h2.id)
-ro4 = Room.create!(image: "", room_type: "Suite", rate: 250, hotel_id: h3.id)
+# ro1 = Room.create!(image: "", room_type: "Single King", rate: 100, hotel_id: h1.id)
+# ro2 = Room.create!(image: "", room_type: "Double Twin", rate: 125, hotel_id: h2.id)
+# ro3 = Room.create!(image: "", room_type: "Double Queen", rate: 175, hotel_id: h2.id)
+# ro4 = Room.create!(image: "", room_type: "Suite", rate: 250, hotel_id: h3.id)
 
-re1 = Review.create!(title: "Terrible!", star: 2 , content: "I hated it!", hotel_id: h1.id, guest_id: 1)
-re2 = Review.create!(title: "Amazing!", star: 5, content: "I loved it!", hotel_id: h2.id, guest_id: 1)
-re3 = Review.create!(title: "Excellent", star: 4, content: "Great!", hotel_id: h2.id, guest_id: 1)
-c
+# re1 = Review.create!(title: "Terrible!", star: 2 , content: "I hated it!", hotel_id: h1.id, guest_id: 1)
+# re2 = Review.create!(title: "Amazing!", star: 5, content: "I loved it!", hotel_id: h2.id, guest_id: 1)
+# re3 = Review.create!(title: "Excellent", star: 4, content: "Great!", hotel_id: h2.id, guest_id: 1)
+
+
+require 'csv'
+table = CSV.parse(File.read("app/config/db/hotel_data.csv"), headers: true, :encoding => 'ISO-8859-1')
+table.each do |row|
+    rowH = row.to_hash
+    if rowH
+        Hotel.create!(image: rowH["image"], name: rowH["name"], city: rowH["city"], country: rowH["counrty"])
+end
