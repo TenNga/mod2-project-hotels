@@ -1,74 +1,77 @@
-<div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
-   <h1>Account Information</h1> 
-</div>
-
-    <div class="top menu" style="text-align:right; margin:5px 0px">
-        <% if session[:user]%>
-        <button class="ui black basic button" disabled>
-            <%=Guest.find(session[:user]).first_name%>
-        </button>
-        <button class="ui inverted red button">
-                <%= link_to "LOGOUT", logout_session_path, method: :get%>
-        </button>
-        <%end%>
-    </div>
-    <div class="search button" style="text-align:left">
-        <button class="ui inverted primary button" >
-            <%= link_to "Search Hotel", home_pages_path, method: :get%>
-        </button>
-        <button class="ui inverted primary button" >
-            <%= link_to "Existing Reviews", reviews_path, method: :get%>
-            </button>
-    </div>
-<br>
-
-<div class="ui one column"  style="margin:0px 200px">
-        <div class="column">
-          <div class="ui raised segment">
-            <a class="ui blue ribbon label">Account Details</a>
-            <h3><%= @guest.first_name%> <%= @guest.last_name%></h3>
-            <h3>Email: <%= @guest.email%></h3>
-          </div>
-        </div>
+<div class="full-container">
+  <div class="page-heading" >
+    <h1>Account Information</h1> 
+  </div>
+    <div class="account-subMenu">
+      <div class="top menu" style="text-align:right; margin:5px 0px">
+          <% if session[:user]%>
+          <button class="ui black basic button" disabled>
+              <%=Guest.find(session[:user]).first_name%>
+          </button>
+          <button class="ui inverted red button">
+                  <%= link_to "LOGOUT", logout_session_path, method: :get%>
+          </button>
+          <%end%>
       </div>
-      <br>
+      <div class="search button" style="text-align:left">
+          <button class="ui inverted primary button" >
+              <%= link_to "Search Hotel", home_pages_path, method: :get%>
+          </button>
+          <button class="ui inverted primary button" >
+              <%= link_to "Existing Reviews", reviews_path, method: :get%>
+              </button>
+      </div>
+    </div>
+  <br>
 
-  <div class="ui cards">
-    <% @bookings.each do |booking|%>
-    <hr>
-        <div class="card">
-          <div class="content">
-           <a href="https://media-api.xogrp.com/images/9a506749-95e9-47cf-857e-5374f2205b93~rs_768.h" target="_blank"> <img class="right floated mini ui image" src="https://media-api.xogrp.com/images/9a506749-95e9-47cf-857e-5374f2205b93~rs_768.h" ></a>
-            <div class="header">
-                Hotel Name: <%= link_to booking.room.hotel.name, hotel_path(booking.room.hotel)%>
+  <div class="ui one column"  style="margin:0px 200px">
+          <div class="column">
+            <div class="ui raised segment">
+              <a class="ui blue ribbon label">Account Details</a>
+              <h3><%= @guest.first_name%> <%= @guest.last_name%></h3>
+              <h3>Email: <%= @guest.email%></h3>
             </div>
-            <div class="description">
-                Checkin Date: <%=booking.check_in_date%>
-            </div>
-            <div class="description">
-                Checkout Date: <%=booking.check_out_date%> 
-            </div>
-            <div class="description">
-                    Charged: $<%=booking.cost%>
-            </div>
-          </div>
-
-          <div class="extra content">
-            <div class="ui two buttons">
-              <div class="ui basic green button">
-                    <%= link_to "EDIT", edit_booking_path(booking), method: :get%>
-              </div>
-              <div class="ui basic red button">
-                    <%= link_to "DELETE", booking_path(booking), method: :delete%>
-              </div>
-            </div>
-            <div class="ui basic button">
-                    <%=form_tag new_review_path, method: :get do%>
-                        <%=hidden_field_tag :hotel_id, booking.room.hotel.id%>
-                        <%= submit_tag "WRITE A NEW REVIEW"%>
-                    <%end%>
-              </div>
           </div>
         </div>
-    <%end%> 
+        <br>
+
+    <div class="ui cards">
+      <% @bookings.each do |booking|%>
+      <hr>
+          <div class="card">
+            <div class="content">
+            <a href="https://media-api.xogrp.com/images/9a506749-95e9-47cf-857e-5374f2205b93~rs_768.h" target="_blank"> <img class="right floated mini ui image" src="https://media-api.xogrp.com/images/9a506749-95e9-47cf-857e-5374f2205b93~rs_768.h" ></a>
+              <div class="header">
+                  Hotel Name: <%= link_to booking.room.hotel.name, hotel_path(booking.room.hotel)%>
+              </div>
+              <div class="description">
+                  Checkin Date: <%=booking.check_in_date%>
+              </div>
+              <div class="description">
+                  Checkout Date: <%=booking.check_out_date%> 
+              </div>
+              <div class="description">
+                      Charged: $<%=booking.cost%>
+              </div>
+            </div>
+
+            <div class="extra content">
+              <div class="ui two buttons">
+                <div class="ui basic green button">
+                      <%= link_to "EDIT", edit_booking_path(booking), method: :get%>
+                </div>
+                <div class="ui basic red button">
+                      <%= link_to "DELETE", booking_path(booking), method: :delete%>
+                </div>
+              </div>
+              <div class="ui basic button">
+                      <%=form_tag new_review_path, method: :get do%>
+                          <%=hidden_field_tag :hotel_id, booking.room.hotel.id%>
+                          <%= submit_tag "WRITE A NEW REVIEW"%>
+                      <%end%>
+                </div>
+            </div>
+          </div>
+      <%end%> 
+  </div>
 </div>

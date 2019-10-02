@@ -24,23 +24,18 @@
             <%end%>
             </div>
         
-        <br>
-        
         <%if params[:city]%>
-        <hr>
             <h1>Hotels in <%=params[:city]%></h1>
-        <hr>
         <%else%>
-        <hr>
             <h1>All Hotels</h1>
-        <hr>
         <%end%>
         <br>
-        
+        <div class="hotel-list-container">
             <div class="ui cards">
                 <% @hotels.each do |hotel|%>
                 <%rooms = hotel.rooms.order(rate: :ASC)%>
-                    <% rooms.each do |room|%>     
+                <% uniq_room = rooms.first(2)%>
+                    <% uniq_room.each do |room|%>     
             
                     <div class="card" >
                       <div class="content">
@@ -67,6 +62,6 @@
             <%end%>
             <%end%>
         </div>
-        
+    </div>
         
 </div>

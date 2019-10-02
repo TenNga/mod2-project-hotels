@@ -1,35 +1,37 @@
-<div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
-        <h1>New Review</h1></div>
+<div class="full-container">
+    <div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
+            <h1>New Review</h1></div>
 
-<hr>
+    <hr>
 
-<div class="menu-container">
-        <div class="top-menu">
-            <% if session[:user]%>
-                <button class="positive ui button">
-                    <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
-                </button>
-                <button class="negative ui button">
-                    <%= link_to "LOGOUT", logout_session_path, method: :get%>
-                </button>
-            <%end%>
+    <div class="menu-container">
+            <div class="top-menu">
+                <% if session[:user]%>
+                    <button class="positive ui button">
+                        <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+                    </button>
+                    <button class="negative ui button">
+                        <%= link_to "LOGOUT", logout_session_path, method: :get%>
+                    </button>
+                <%end%>
+            </div>
+        </div>  
+
+    <%=form_for @review do |review|%>
+        <div>
+        <%=review.label "Title", class: "label"%>
+        <%=review.text_field :title, placeholder: "Title", class: "review-field"%> 
         </div>
-     </div>  
-
-<%=form_for @review do |review|%>
-    <div>
-    <%=review.label "Title", class: "label"%>
-    <%=review.text_field :title, placeholder: "Title", class: "field"%> 
-    </div>
-    <div>
-    <%=review.label "Star", class: "label"%> <br>
-    <%=review.select :star, @stars%> 
-    </div>
-    <br>
-    <div>
-    <%=review.label "Content", class: "label"%>
-    <%=review.text_area :content, placeholder: "Content", class: "field"%> <br>
-    </div>
-    <%=review.hidden_field :hotel_id, :value=> params[:hotel_id].to_i%>
-    <%=review.submit "Post Review"%>
-<%end%>
+        <div>
+        <%=review.label "Star", class: "label"%> <br>
+        <%=review.select :star, @stars%> 
+        </div>
+        <br>
+        <div>
+        <%=review.label "Content", class: "label"%>
+        <%=review.text_area :content, placeholder: "Content", class: "review-field"%> <br>
+        </div>
+        <%=review.hidden_field :hotel_id, :value=> params[:hotel_id].to_i%>
+        <%=review.submit "Post Review"%>
+    <%end%>
+</div>

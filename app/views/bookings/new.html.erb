@@ -1,35 +1,37 @@
-<div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
-<h1>Create New Booking</h1>
-</div>
-
-    <div class="top menu" style="text-align:right; margin:5px 0px">
-        <% if session[:user]%>
-        <button class="ui black basic button" disabled>
-            <%=Guest.find(session[:user]).first_name%>
-        </button>
-        <button class="ui inverted red button">
-                <%= link_to "LOGOUT", logout_session_path, method: :get%>
-        </button>
-        <%end%>
+<div class="full-container">
+    <div class="page-heading" >
+        <h1>Create New Booking</h1>
     </div>
 
-<hr>
-<%= form_for @booking do |f|%>
-    <%= f.hidden_field :guest_id, :value => @guest_id%>
-    <%= f.hidden_field :room_id, :value => @room_id%>
-    <%= f.label "Number of Guests", class: "label"%>
-    <%= f.number_field :number_of_guest, placeholder: "Number of guest", class: "field"%>  <br>
-    <%= f.label "check In Date", class: "label"%>
-    <%= f.date_field :check_in_date, class: "field"%> <br>
-    <%= f.label "check Out Date", class: "label"%>
-    <%= f.date_field :check_out_date, class: "field"%> <br>
-    <%= f.hidden_field :booking_date, :value => Date.today%>
-    <%= f.hidden_field :cost, :value => 0%>
-    <button class="ui primary button">
-           <%= f.submit "BOOK"%>
-    </button>
-<%end%>
-<br>
-<button class="ui red basic button">
-        <%=link_to "CANCEL BOOKING", home_pages_path %>
-     </button>
+    <div class="menu-container">
+            <div class="top-menu">
+                <% if session[:user]%>
+                    <button class="positive ui button">
+                        <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+                    </button>
+                    <button class="negative ui button">
+                        <%= link_to "LOGOUT", logout_session_path, method: :get%>
+                    </button>
+                <%end%>
+            </div>
+        </div> 
+    <%= form_for @booking do |f|%>
+        <%= f.hidden_field :guest_id, :value => @guest_id%>
+        <%= f.hidden_field :room_id, :value => @room_id%>
+        <%= f.label "Number of Guests", class: "label"%>
+        <%= f.number_field :number_of_guest, placeholder: "Number of guest", class: "booking-field"%>  <br>
+        <%= f.label "check In Date", class: "label"%>
+        <%= f.date_field :check_in_date, class: "booking-field"%> <br>
+        <%= f.label "check Out Date", class: "label"%>
+        <%= f.date_field :check_out_date, class: "booking-field"%> <br>
+        <%= f.hidden_field :booking_date, :value => Date.today%>
+        <%= f.hidden_field :cost, :value => 0%>
+        <button class="ui primary button">
+            <%= f.submit "BOOK", class: "submit-booking"%>
+        </button>
+        <button class="ui red basic button">
+            <%=link_to "CANCEL", home_pages_path %>
+        </button>
+    <%end%>
+    <br>
+</div>

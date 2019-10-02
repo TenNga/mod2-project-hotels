@@ -1,16 +1,18 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
-<hr>
-<%= form_for @booking do |f|%>
-    <%= f.hidden_field :guest_id, :value => @guest_id%>
-    <%= f.hidden_field :room_id, :value => @room_id%>
-    <%= f.label "Number of Guests"%>
-    <%= f.number_field :number_of_guest %> <hr> <br>
-    <%= f.label "check In Date"%>
-    <%= f.date_field :check_in_date%> <hr> <br>
-    <%= f.label "check Out Date"%>
-    <%= f.date_field :check_out_date%> <hr> <br>
-    <%= f.hidden_field :booking_date, :value => Date.today%>
-    <%= f.hidden_field :cost, :value => 0%>
-    <%= f.submit "Submit Change"%>
-<%end%>
+<div class="full-container">
+    <h1>Bookings#edit</h1>
+    <p>Find me in app/views/bookings/edit.html.erb</p>
+    <hr>
+    <%= form_for @booking do |f|%>
+        <%= f.hidden_field :guest_id, :value => @guest_id%>
+        <%= f.hidden_field :room_id, :value => @room_id%>
+        <%= f.label "Number of Guests"%>
+        <%= f.number_field :number_of_guest %> <hr> <br>
+        <%= f.label "check In Date"%>
+        <%= f.date_field :check_in_date%> <hr> <br>
+        <%= f.label "check Out Date"%>
+        <%= f.date_field :check_out_date%> <hr> <br>
+        <%= f.hidden_field :booking_date, :value => Date.today%>
+        <%= f.hidden_field :cost, :value => 0%>
+        <%= f.submit "Submit Change"%>
+    <%end%>
+</div>

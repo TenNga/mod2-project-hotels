@@ -1,4 +1,4 @@
-.field {
+.booking-field {
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -12,4 +12,42 @@
     font-weight: bold;
     font-size: 14px;
     text-transform: uppercase;
+}
+.submit-booking {
+    background: none;
+    border: none;
+    color: white;
+}
+
+.booking-info {
+    padding: 20px;
+    margin: 0px 100px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 9px gray;
+    border: 2px solid rgb(155, 154, 154);
+}
+.edit-booking {
+    width: 200px;
+    margin: 15px;
+    background-color: rgb(238, 236, 237);
+    color: whitergb(49, 49, 210);
+    border: 2px solid rgb(49, 49, 210);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.delete-booking {
+    width: 200px;
+    margin: 15px;
+    background-color: rgb(238, 236, 237);
+    border: 2px solid rgb(191, 20, 20);
+    color: red;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.booking-buttons{
+    margin-top: 20px;
+   display: flex;
+    justify-content: center;
 }
