@@ -1,11 +1,30 @@
-<h1>Rooms#show</h1>
-<li><img src=<%=@room.image%> alt="room image"></li>
-<li>Room type: <%=@room.room_type%></li>
-<li>Cost per day: $<%=@room.rate%></li>
+<div class="menu-container">
+        <div class="top-menu">
+            <% if session[:user]%>
+                <button class="positive ui button">
+                    <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+                </button>
+                <button class="negative ui button">
+                    <%= link_to "LOGOUT", logout_session_path, method: :get%>
+                </button>
+            <%end%>
+        </div>
+     </div>  
+    <br>
 
-<%= form_tag new_booking_path, method: :get do %>
-    <%= hidden_field_tag :room_id, @room.id%>
-    <%= submit_tag "BOOK THIS ROOM"%>
-<%end%>
 
+    <h1 class="ui blue circular label", style="font-size: 35px"><%=@room.room_type%></h1>
+    <br>
+    <br>
+    <img src=<%=@room.image%> alt="room image", style="width: 700px; height: auto;padding:1px; border:1px solid #021a40; background-color:#ff0;">
+    <br>
+    <br>
+    <h1 class="ui blue circular label", style="font-size: 25px">$ <%=@room.rate%> / day</h1>
+    <br>
+    <br>
+    <%= form_tag new_booking_path, method: :get do %>
+        <%= hidden_field_tag :room_id, @room.id%>
+        <%= submit_tag "BOOK THIS ROOM", class: "submit_button"%>
+    <%end%>
 
+    

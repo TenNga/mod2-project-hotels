@@ -14,3 +14,14 @@
     text-transform: uppercase;
 }
 
+.submit_button{
+    border-radius: 15px;
+    background-color: rgb(177, 153, 19);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.resize {
+    width: 300px;
+    height: auto;
+}
