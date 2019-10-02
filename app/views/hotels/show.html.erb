@@ -3,8 +3,12 @@
 <h2>City: <%=@hotel.city%></h2>
 <h2>Country: <%=@hotel.country%></h2>
 <h2>Stars: 
-        <%while @i <= @hotel.reviews.average(:star)%>
-        <i class="star icon"></i>
-            <%@i += 1%>
+        <%if @hotel.reviews.average(:star)%>
+            <%while @i <= @hotel.reviews.average(:star)%>
+            <i class="star icon"></i>
+                <%@i += 1%>
+            <%end%>
+        <%else%>
+            <%"There have been no reviews written for this hotel"%>
         <%end%>
 </h2>

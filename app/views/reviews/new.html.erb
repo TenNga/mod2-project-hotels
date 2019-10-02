@@ -3,10 +3,33 @@
 
 <hr>
 
+<div class="menu-container">
+        <div class="top-menu">
+            <% if session[:user]%>
+                <button class="positive ui button">
+                    <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+                </button>
+                <button class="negative ui button">
+                    <%= link_to "LOGOUT", logout_session_path, method: :get%>
+                </button>
+            <%end%>
+        </div>
+     </div>  
+
 <%=form_for @review do |review|%>
-    <h1>Title: <%=review.text_field :title%></h1>
-    <h1>Stars: <%=review.select :star, @stars%></h1>
-    <h1>Content: <%=review.text_area :content%></h1>
+    <div>
+    <%=review.label "Title", class: "label"%>
+    <%=review.text_field :title, placeholder: "Title", class: "field"%> 
+    </div>
+    <div>
+    <%=review.label "Star", class: "label"%> <br>
+    <%=review.select :star, @stars%> 
+    </div>
+    <br>
+    <div>
+    <%=review.label "Content", class: "label"%>
+    <%=review.text_area :content, placeholder: "Content", class: "field"%> <br>
+    </div>
     <%=review.hidden_field :hotel_id, :value=> params[:hotel_id].to_i%>
-    <h1><%=review.submit "Post Review"%></h1>
+    <%=review.submit "Post Review"%>
 <%end%>
