@@ -1,6 +1,18 @@
 <div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
     <h1>Reviews</h1></div>
 <br>
+<div class="menu-container">
+    <div class="top-menu">
+        <% if session[:user]%>
+            <button class="positive ui button">
+                <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+            </button>
+            <button class="negative ui button">
+                <%= link_to "LOGOUT", logout_session_path, method: :get%>
+            </button>
+        <%end%>
+    </div>
+ </div>  
 <br>
 
 <div class="ui cards">

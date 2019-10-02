@@ -25,8 +25,11 @@
     <%= f.date_field :check_out_date, class: "field"%> <br>
     <%= f.hidden_field :booking_date, :value => Date.today%>
     <%= f.hidden_field :cost, :value => 0%>
-    <button class="ui black basic button">
+    <button class="ui primary button">
            <%= f.submit "BOOK"%>
-        </button>
-    
+    </button>
 <%end%>
+<br>
+<button class="ui red basic button">
+        <%=link_to "CANCEL BOOKING", home_pages_path %>
+     </button>
