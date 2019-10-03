@@ -8,12 +8,11 @@ class ReviewsController < ApplicationController
     end
 
     def new
-       
         @review = Review.new
+        @hotel = Hotel.find(params[:hotel_id])
         @guest = Guest.find(session[:user])
         @stars = [1,2,3,4,5]
 
-        
     end
 
     def create 

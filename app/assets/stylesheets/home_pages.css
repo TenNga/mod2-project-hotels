@@ -25,7 +25,7 @@
 .menu-container{
     display: flex;
     flex-wrap: wrap;
-    margin: 10px;
+    padding: 10px;
     color: rgb(233, 233, 233);
 }
 .menu-container a{
@@ -34,7 +34,7 @@
 
 .page-heading {
     width: 100vw;
-    background-color: rgb(85, 85, 252);
+    background-color: rgba(166, 166, 169, 0.6);
     padding:20px 0px;
     color: rgb(233, 232, 232);
 }
@@ -52,11 +52,21 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+.home-header-container{
+    background-image: url(https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-position-y: 600px;
+    background-position-x: center;
+    width: 100vw;
+    padding: 40px 0px;
+}
+.inner-home-header{
+    margin: 0px 10%;
+}
 .hotel-list-container{
     margin: 20px 0px;
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 1px 1px 10px grey;
     height: 700px;
     overflow: auto;
 }

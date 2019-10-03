@@ -16,22 +16,25 @@
                 <%end%>
             </div>
         </div>  
+        <div class="review-header">
+            <h3><%=@hotel.name%></h3>
+        </div>
 
     <%=form_for @review do |review|%>
-        <div>
+        <div class="review-row">
         <%=review.label "Title", class: "label"%>
         <%=review.text_field :title, placeholder: "Title", class: "review-field"%> 
         </div>
-        <div>
+        <div class="review-row">
         <%=review.label "Star", class: "label"%> <br>
         <%=review.select :star, @stars%> 
         </div>
         <br>
-        <div>
+        <div class="review-row">
         <%=review.label "Content", class: "label"%>
         <%=review.text_area :content, placeholder: "Content", class: "review-field"%> <br>
         </div>
-        <%=review.hidden_field :hotel_id, :value=> params[:hotel_id].to_i%>
+        <%=review.hidden_field :hotel_id, :value=> @hotel.id%>
         <%=review.submit "Post Review"%>
     <%end%>
 </div>

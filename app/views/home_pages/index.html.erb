@@ -1,36 +1,40 @@
 <div class="background-full-container">
-        <div class="page-heading">
-                <h1>Welcome To Hotel Booking</h1>
-        </div>
-<div class="home-full-container">
         
-         <div class="menu-container">
-            <div class="top-menu">
-                <% if session[:user]%>
-                    <button class="positive ui button">
-                        <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
-                    </button>
-                    <button class="negative ui button">
-                        <%= link_to "LOGOUT", logout_session_path, method: :get%>
-                    </button>
-                <%end%>
-            </div>
-         </div>  
-               
-            <div class="search" >
-            <%= form_with url: home_pages_path, method: :get, local: true do |f|%>
-            <%= f.select :city, @uniq_cities,{}, {:class=> "search_hotel"}%>
-                <div class="ui blue submit button">
-                        <%= f.submit "SEARCH HOTELS"%>
+        <div class="home-header-container">
+                <div class="page-heading">
+                        <h1>Welcome To Hotel Booking</h1>
                 </div>
-            <%end%>
-            </div>
-        
+            <div class="inner-home-header">
+                <div class="menu-container">
+                   <div class="top-menu">
+                       <% if session[:user]%>
+                           <button class="positive ui button">
+                               <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+                           </button>
+                           <button class="negative ui button">
+                               <%= link_to "LOGOUT", logout_session_path, method: :get%>
+                           </button>
+                       <%end%>
+                   </div>
+                </div>  
+                      
+                   <div class="search" >
+                   <%= form_with url: home_pages_path, method: :get, local: true do |f|%>
+                   <%= f.select :city, @uniq_cities,{}, {:class=> "search_hotel"}%>
+                       <div class="ui blue submit button">
+                               <%= f.submit "SEARCH HOTELS"%>
+                       </div>
+                   <%end%>
+                   </div>
+            
+                </div>
+           </div>
+<div class="home-full-container">
         <%if params[:city]%>
-            <h1>Hotels in <%=params[:city]%></h1>
-        <%else%>
-            <h1>All Hotels</h1>
-        <%end%>
+                   <h1>Hotels in <%=params[:city]%></h1>
+               <%else%>
+                   <h1>All Hotels</h1>
+               <%end%>
         <br>
         <div class="hotel-list-container">
             <div class="ui link cards">
