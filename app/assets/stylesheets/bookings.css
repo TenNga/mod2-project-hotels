@@ -1,3 +1,16 @@
+.booking-full-container{
+    width: 100vw;
+    height: fit-content;
+    background: white;
+}
+.booking-main-container{
+    margin: 0px 10%;
+}
+.booking-heading{
+    background-color: rgb(54, 54, 244);
+    color: white;
+    padding: 15px 0px;
+}
 .booking-field {
     width: 50%;
     padding: 12px 20px;
@@ -17,6 +30,10 @@
     background: none;
     border: none;
     color: white;
+}
+.error-text {
+    color: red;
+    display: inline-block;
 }
 
 .booking-info {

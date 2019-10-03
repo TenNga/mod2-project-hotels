@@ -1,5 +1,6 @@
-<div class="full-container">
-    <div class="page-heading" >
+<div class="booking-full-container">
+    <div class="booking-main-container">
+    <div class="booking-heading" >
         <h1>Create New Booking</h1>
     </div>
 
@@ -15,6 +16,24 @@
                 <%end%>
             </div>
         </div> 
+<div class="error-text">
+        <% if @booking.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@booking.errors.count, "error") %>
+      prohibited this booking from being created:
+    </h2>
+ 
+    <ul>
+    <% @booking.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+    </ul>
+  </div>
+  <br>
+<% end %>
+</div>
+
     <%= form_for @booking do |f|%>
         <%= f.hidden_field :guest_id, :value => @guest_id%>
         <%= f.hidden_field :room_id, :value => @room_id%>
@@ -32,50 +51,10 @@
         <button class="ui red basic button">
             <%=link_to "CANCEL", home_pages_path %>
         </button>
-<<<<<<< HEAD
         <%end%>
     </div>
 
 <hr>
-
-<% if @booking.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@booking.errors.count, "error") %>
-      prohibited this booking from being created:
-    </h2>
- 
-    <ul>
-    <% @booking.errors.full_messages.each do |msg| %>
-      <p><%= msg %></p>
-    <% end %>
-    </ul>
-  </div>
-  <br>
-<% end %>
-
-
-<%= form_for @booking do |f|%>
-    <%= f.hidden_field :guest_id, :value => @guest_id%>
-    <%= f.hidden_field :room_id, :value => @room_id%>
-    <%= f.label "Number of Guests", class: "label"%>
-    <%= f.number_field :number_of_guest, placeholder: "Number of guest", class: "field"%>  <br>
-    <%= f.label "check In Date", class: "label"%>
-    <%= f.date_field :check_in_date, class: "field"%> <br>
-    <%= f.label "check Out Date", class: "label"%>
-    <%= f.date_field :check_out_date, class: "field"%> <br>
-    <%= f.hidden_field :booking_date, :value => Date.today%>
-    <%= f.hidden_field :cost, :value => 0%>
-    <button class="ui primary button">
-           <%= f.submit "BOOK"%>
-    </button>
-<%end%>
-<br>
-<button class="ui red basic button">
-        <%=link_to "CANCEL BOOKING", home_pages_path %>
-     </button>
-=======
-    <%end%>
-    <br>
 </div>
->>>>>>> eaa1e1c5dd832add0047ee27cd15c6d810bd6913
+
+

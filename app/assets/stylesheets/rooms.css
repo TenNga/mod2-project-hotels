@@ -1,3 +1,12 @@
+.room-full-container{
+    width: 100vw;
+    height: 100%;
+}
+.room-main-container{
+    background-color: white;
+    height: 100%;
+    margin: 0px 10%;
+}
 .room-details{
     width: 500px;
     margin: 0px auto;
@@ -29,4 +38,9 @@
     color: white;
     background-color: rgb(45, 137, 249);
     cursor: pointer;
+}
+.room-page-heading{
+    background-color: blue;
+    padding: 15px 0px;
+    color: white;
 }
