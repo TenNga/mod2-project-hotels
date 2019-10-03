@@ -1,5 +1,5 @@
-<div class="full-container">
-  <div class="page-heading" >
+<div class="account-full-container">
+  <div class="account-page-heading" >
     <h1>Account Information</h1> 
   </div>
     <div class="account-subMenu">
@@ -15,10 +15,10 @@
       </div>
       <div class="search button" style="text-align:left">
           <button class="ui inverted primary button" >
-              <%= link_to "Search Hotel", home_pages_path, method: :get%>
+              <span><i class="search icon"></i></span><%= link_to "Search Hotel", home_pages_path, method: :get%>
           </button>
           <button class="ui inverted primary button" >
-              <%= link_to "Existing Reviews", reviews_path, method: :get%>
+              <span><i class="list icon"></i></span><%= link_to "Existing Reviews", reviews_path, method: :get%>
               </button>
       </div>
     </div>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <br>
-
+<div class="account-cards-holder">
     <div class="ui cards">
       <% @bookings.each do |booking|%>
       <hr>
@@ -58,20 +58,21 @@
             <div class="extra content">
               <div class="ui two buttons">
                 <div class="ui basic green button">
-                      <%= link_to "EDIT", edit_booking_path(booking), method: :get%>
+                    <span><i class="edit outline icon"></i></span>  <%= link_to "EDIT", edit_booking_path(booking), method: :get%>
                 </div>
                 <div class="ui basic red button">
-                      <%= link_to "DELETE", booking_path(booking), method: :delete%>
+                     <span><i class="trash icon"></i></span> <%= link_to "DELETE", booking_path(booking), method: :delete%>
                 </div>
               </div>
               <div class="ui basic button">
                       <%=form_tag new_review_path, method: :get do%>
                           <%=hidden_field_tag :hotel_id, booking.room.hotel.id%>
-                          <%= submit_tag "WRITE A NEW REVIEW"%>
+                         <span><i class="paper plane outline icon"></i></span> <%= submit_tag "WRITE A NEW REVIEW"%>
                       <%end%>
                 </div>
             </div>
           </div>
       <%end%> 
+  </div>
   </div>
 </div>

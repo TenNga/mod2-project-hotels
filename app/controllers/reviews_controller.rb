@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     def create 
         params[:review][:guest_id] = session[:user]
         # byebug
+        @hotel = Hotel.find(params[:review][:hotel_id])
         @review = Review.new(review_params)
         if @review.save
             redirect_to reviews_path

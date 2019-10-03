@@ -1,3 +1,15 @@
+.account-full-container{
+    background-color: white;
+    margin: 0px 10%;
+}
+.account-page-heading{
+    background-color: rgb(51, 100, 223);
+    padding: 20px 0px;
+    color: white;
+}
+.account-page-heading h1{
+    font-size: 40px;
+}
 .signUpHeading {
     margin-top: 20px
 }
@@ -60,4 +72,7 @@
     background-color: rgb(233, 231, 231, .8);
     padding: 20px;
     border-radius: 10px;
+}
+.account-cards-holder{
+    margin: 10px;
 }

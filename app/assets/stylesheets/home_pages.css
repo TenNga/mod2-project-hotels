@@ -77,14 +77,37 @@
 .home-footer ul{
     display: flex;
     list-style: none;
+    margin: 0px;
 }
 .home-footer li{
     display: inline;
     flex-grow: 1;
     color: white;
-    margin: 15px 0px;
+    padding: 15px 0px;
 }
 .home-footer li:hover {
     font-weight: bolder;
+    cursor: pointer;
+}
+.room-rate{
+    width: 100px;
+    background-color: rgb(177, 11, 11);
+    color: white;
+    font-weight: bold;
+    margin: 0px 30%;
+    padding: 5px 10px;
+}
+.home-book-button{
+    font-size: 20px;
+    border: 2px solid rgb(50, 50, 242);
+    border-radius: 8px;
+    margin: 5px 60px;
+    padding: 5px 0px;
+    color: rgb(49, 49, 210);
+    background-color: white;
+}
+.home-book-button:hover{
+    background-color: rgb(150, 150, 237);
+    color: white;
     cursor: pointer;
 }

@@ -22,7 +22,7 @@
                    <%= form_with url: home_pages_path, method: :get, local: true do |f|%>
                    <%= f.select :city, @uniq_cities,{}, {:class=> "search_hotel"}%>
                        <div class="ui blue submit button">
-                               <%= f.submit "SEARCH HOTELS"%>
+                               <%= f.submit "SEARCH"%> <span><i class="search icon"></i></span>
                        </div>
                    <%end%>
                    </div>
@@ -57,14 +57,14 @@
                         <div class="meta">
                           <%= room.hotel.city%>
                         </div>
-                        <div class="description">
-                                $<%= room.rate%> / day
+                        <div class="room-rate">
+                            <div class="description">
+                                    $<%= room.rate%> / day
+                            </div>
                         </div>
                       </div>
-                      <div class="extra content">
-                              <button class="ui primary basic button">
+                      <div class="home-book-button">
                                   <%=link_to "Book", room_path(room.id)%>
-                                </button>
                       </div>
                     </div>
                   

@@ -23,7 +23,11 @@
             <div class="header"><%=review.title%></div>
             <div class="meta"><%=review.hotel.name%>, <%=review.hotel.city%></div>
             <div class="meta"><%=review.created_at.strftime("%B %d %Y")%></div>
-            <div class="meta"><%=review.star%> Stars</div>
+            <div class="meta">
+              <%review.star.times do%>
+                <span><i class="star icon"></i></span>
+              <%end%>
+            </div>
             <div class="description">
               <p style="overflow: auto">
                 <%=review.content%>
