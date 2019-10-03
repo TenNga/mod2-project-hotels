@@ -20,21 +20,36 @@
             <h3><%=@hotel.name%></h3>
         </div>
 
-    <%=form_for @review do |review|%>
-        <div class="review-row">
-        <%=review.label "Title", class: "label"%>
-        <%=review.text_field :title, placeholder: "Title", class: "review-field"%> 
-        </div>
-        <div class="review-row">
-        <%=review.label "Star", class: "label"%> <br>
-        <%=review.select :star, @stars%> 
-        </div>
-        <br>
-        <div class="review-row">
-        <%=review.label "Content", class: "label"%>
-        <%=review.text_area :content, placeholder: "Content", class: "review-field"%> <br>
-        </div>
-        <%=review.hidden_field :hotel_id, :value=> @hotel.id%>
-        <%=review.submit "Post Review"%>
-    <%end%>
-</div>
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@review.errors.count, "error") %>
+      prohibited this review from being posted:
+    </h2>
+ 
+    <ul>
+    <% @review.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+    </ul>
+  </div>
+  <br>
+<% end %>
+
+<%=form_for @review do |review|%>
+    <div>
+    <%=review.label "Title", class: "label"%>
+    <%=review.text_field :title, placeholder: "Title", class: "field"%> 
+    </div>
+    <div>
+    <%=review.label "Star", class: "label"%> <br>
+    <%=review.select :star, [1,2,3,4,5]%> 
+    </div>
+    <br>
+    <div>
+    <%=review.label "Content", class: "label"%>
+    <%=review.text_area :content, placeholder: "Content", class: "field"%> <br>
+    </div>
+    <%=review.hidden_field :hotel_id, :value=> params[:hotel_id].to_i%>
+    <%=review.submit "Post Review"%>
+<%end%>

@@ -11,15 +11,18 @@ class ReviewsController < ApplicationController
         @review = Review.new
         @hotel = Hotel.find(params[:hotel_id])
         @guest = Guest.find(session[:user])
-        @stars = [1,2,3,4,5]
 
     end
 
     def create 
         params[:review][:guest_id] = session[:user]
         # byebug
-        r = Review.create!(review_params)
-        redirect_to reviews_path
+        @review = Review.new(review_params)
+        if @review.save
+            redirect_to reviews_path
+        else
+            render :new
+        end
 
     end
 
