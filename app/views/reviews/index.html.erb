@@ -1,34 +1,36 @@
-<div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
-    <h1>Reviews</h1></div>
-<br>
-<div class="menu-container">
-    <div class="top-menu">
-        <% if session[:user]%>
-            <button class="positive ui button">
-                <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
-            </button>
-            <button class="negative ui button">
-                <%= link_to "LOGOUT", logout_session_path, method: :get%>
-            </button>
-        <%end%>
-    </div>
- </div>  
-<br>
+<div class="full-container">
+  <div class="heading_page" style="background-color: rgb(24, 24, 233);color:white;padding:10px 0px">
+      <h1>Reviews</h1></div>
+  <br>
+  <div class="menu-container">
+      <div class="top-menu">
+          <% if session[:user]%>
+              <button class="positive ui button">
+                  <%= link_to "ACCOUNT", guest_path(Guest.find(session[:user])), method: :get%>
+              </button>
+              <button class="negative ui button">
+                  <%= link_to "LOGOUT", logout_session_path, method: :get%>
+              </button>
+          <%end%>
+      </div>
+  </div>  
+  <br>
 
-<div class="ui cards">
-<%@guest.reviews.each do |review|%>
-<div class="ui card">
-        <div class="content">
-          <div class="header"><%=review.title%></div>
-          <div class="meta"><%=review.hotel.name%>, <%=review.hotel.city%></div>
-          <div class="meta"><%=review.created_at.strftime("%B %d %Y")%></div>
-          <div class="meta"><%=review.star%> Stars</div>
-          <div class="description">
-            <p style="overflow: auto">
-              <%=review.content%>
-            </p>
+  <div class="ui cards">
+  <%@guest.reviews.each do |review|%>
+  <div class="ui card">
+          <div class="content">
+            <div class="header"><%=review.title%></div>
+            <div class="meta"><%=review.hotel.name%>, <%=review.hotel.city%></div>
+            <div class="meta"><%=review.created_at.strftime("%B %d %Y")%></div>
+            <div class="meta"><%=review.star%> Stars</div>
+            <div class="description">
+              <p style="overflow: auto">
+                <%=review.content%>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-<%end%>
+  <%end%>
+  </div>
 </div>

@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+<div class="full-container">
+    <div class="page-heading">
+        <h1><%=@room.room_type%> Room</h1>
+    </div>
+    <div class="menu-container">
+=======
 <div class="menu-container">
+>>>>>>> eb8a5389096bfea0eae8bda87dbce2d79bdf758d
         <div class="top-menu">
             <% if session[:user]%>
                 <button class="positive ui button">
@@ -9,9 +17,31 @@
                 </button>
             <%end%>
         </div>
+<<<<<<< HEAD
+    </div> 
+    <div class="room-details">
+        <div class="room-img">
+            <img src=<%=@room.image%> alt="room image">
+        </div>
+        <div class="room-type">
+            Room type: <%=@room.room_type%>
+        </div>
+        <div class="room-rate">
+            Cost per day: $<%=@room.rate%>
+        </div>
+        
+        <%= form_tag new_booking_path, method: :get do %>
+            <%= hidden_field_tag :room_id, @room.id%>
+            <%= submit_tag "BOOK THIS ROOM", class: "room-book-submit"%>
+        <%end%>
+    </div>
+
+</div>
+=======
      </div>  
     <br>
 
+>>>>>>> eb8a5389096bfea0eae8bda87dbce2d79bdf758d
 
     <h1 class="ui blue circular label", style="font-size: 35px"><%=@room.room_type%></h1>
     <br>

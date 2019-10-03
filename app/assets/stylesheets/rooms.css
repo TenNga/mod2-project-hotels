@@ -1,3 +1,37 @@
+<<<<<<< HEAD
+.room-details{
+    width: 500px;
+    margin: 0px auto;
+    padding: 0px 10px;
+    border: 2px solid rgb(208, 207, 207);
+    box-shadow: 2px 2px 8px grey;
+    border-radius: 8px;
+    background-color: rgb(221, 221, 227,.8);
+}
+.room-details .room-img img{
+    height: 300px;
+    width: 400px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.room-details .room-type {
+    font-size: 20px;
+    margin: 5px;
+}
+.room-details .room-rate {
+    font-size: 25px;
+    margin: 5px;
+}
+.room-details .room-book-submit {
+    margin: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(45, 137, 249);
+    cursor: pointer;
+}
+=======
 .field {
     width: 50%;
     padding: 12px 20px;
@@ -25,3 +59,4 @@
     width: 300px;
     height: auto;
 }
+>>>>>>> eb8a5389096bfea0eae8bda87dbce2d79bdf758d

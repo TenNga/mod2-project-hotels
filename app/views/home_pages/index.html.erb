@@ -1,7 +1,9 @@
-<div class="full-container">
+<div class="background-full-container">
         <div class="page-heading">
                 <h1>Welcome To Hotel Booking</h1>
         </div>
+<div class="home-full-container">
+        
          <div class="menu-container">
             <div class="top-menu">
                 <% if session[:user]%>
@@ -24,25 +26,23 @@
             <%end%>
             </div>
         
-        <br>
-        
         <%if params[:city]%>
-        <hr>
             <h1>Hotels in <%=params[:city]%></h1>
-        <hr>
         <%else%>
-        <hr>
             <h1>All Hotels</h1>
-        <hr>
         <%end%>
         <br>
-        
-            <div class="ui cards">
+        <div class="hotel-list-container">
+            <div class="ui link cards">
                 <% @hotels.each do |hotel|%>
                 <%rooms = hotel.rooms.order(rate: :ASC)%>
-                    <% rooms.each do |room|%>     
+                <% uniq_room = rooms.first(2)%>
+                    <% uniq_room.each do |room|%>     
             
                     <div class="card" >
+                        <div class="custom-image">
+                            <img src=<%=room.image%> alt="">
+                        </div>
                       <div class="content">
                         <div class="header">
                                 Hotel Name: <%=link_to room.hotel.name, hotel_path(room.hotel)%>
@@ -67,6 +67,16 @@
             <%end%>
             <%end%>
         </div>
-        
+    </div>
         
 </div>
+
+</div>
+<div class="home-footer">
+        <ul>
+            <li>About website</li>
+            <li>History</li>
+            <li>Contact</li>
+        </ul>
+        <p>Copy right c Neeraj & Karma</p>
+    </div>

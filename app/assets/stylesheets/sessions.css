@@ -6,6 +6,10 @@ body{
     background-position-x: center !important;
 }
 
+.container {
+    background-color: transparent !important;
+}
+
 .sessionHeading {
     margin-top: 50px;
 }
@@ -21,9 +25,18 @@ body{
 }
 
 .loginBox {
-    margin-top: 6% !important;
+    margin: 6% 10% !important;
+  
 }
 
 .ui.placeholder.segment{
-    background: rgb(235, 235, 235); opacity: 0.8 !important;
+    background: rgb(235, 235, 235,0.8) !important;
+}
+
+.login-submit{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
 }

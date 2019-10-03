@@ -1,28 +1,36 @@
-<h1>Guests#new</h1>
-<p>Find me in app/views/guests/new.html.erb</p>
-<div class="formSignUp">
-    <div></div>
-        <%= form_for @guest do |f| %>
-        <div class="row">
-            <%= f.label "First Name:", class: "label"%>
-            <%= f.text_field :first_name, class: "field"%> 
-        </div>
-        <div class="row">
-            <%= f.label "Last Name:", class: "label"%>
-            <%= f.text_field :last_name, class: "field"%>
-        </div>
-        <div class="row">
-            <%= f.label :email, class: "label"%>
-            <%= f.text_field :email, class: "field"%>
-        </div>
-        <div class="row">
-           <%= f.label :password, class: "label"%>
-            <%= f.password_field :password, class: "field"%> 
-        </div>
-        <div class="submit">
-            <%= f.submit "Create", class: "submit"%>
-        </div>
-    <%end%>
-    <div></div>
-</div>
 
+    <div class="signUpHeading">
+            <h1>Sign up</h1>
+            <p>Sign up for enjoy the best discount hotels</p>
+    </div>
+
+        <div class="sign-up-box">
+                <div class="formSignUp">
+                        <div></div>
+                            <%= form_for @guest do |f| %>
+                            <div class="row">
+                                <%= f.label "First Name:", class: "label"%>
+                                <%= f.text_field :first_name, placeholder: "first name", class: "guest-field"%> 
+                            </div>
+                            <div class="row">
+                                <%= f.label "Last Name:", class: "label"%>
+                                <%= f.text_field :last_name, placeholder: "last name", class: "guest-field"%>
+                            </div>
+                            <div class="row">
+                                <%= f.label :email, class: "label"%>
+                                <%= f.text_field :email, placeholder: "example@email.com",class: "guest-field"%>
+                            </div>
+                            <div class="row">
+                            <%= f.label :password, class: "label"%>
+                                <%= f.password_field :password, placeholder: "minimun 6 char", class: "guest-field"%> 
+                            </div>
+                            <div class="submit">
+                                <%= f.submit "Create Guest", class: "guest-submit"%>
+                                <%= link_to "Sign In", new_session_path, class: "guest-signIn" %>
+                            </div>
+                        <%end%>
+                        <div></div>
+                    </div>
+                    
+                    
+        </div>
