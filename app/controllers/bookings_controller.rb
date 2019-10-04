@@ -41,17 +41,24 @@ class BookingsController < ApplicationController
   end
 
   def update
-    booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     room= Room.find(params[:booking][:room_id])
-
+   
+    @guest_id = session[:user]
+    @room_id = @booking.room.id
     if params[:booking]["check_in_date"].to_i > 0  && params[:booking]["check_out_date"].to_i > 0
       number_of_day = check_date_diff(params[:booking]["check_in_date"],params[:booking]["check_out_date"])
       params[:booking][:cost] = number_of_day * room.rate
     end
  
-    booking.update(booking_params)
-    booking.save 
-    redirect_to booking_path(booking)
+    
+    if @booking.update(booking_params) 
+      # byebug
+      redirect_to booking_path(@booking)
+    else 
+      render :new
+    end
+
   end
 
   def destroy
