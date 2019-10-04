@@ -13,8 +13,12 @@ class BookingsController < ApplicationController
     room= Room.find(params[:booking][:room_id])
     @room_id = params[:booking][:room_id]
     @guest_id = session[:user]
-    number_of_day = check_date_diff(params[:booking]["check_in_date"],params[:booking]["check_out_date"])
-    params[:booking][:cost] = number_of_day * room.rate
+    # byebug
+    if params[:booking]["check_in_date"].to_i > 0  && params[:booking]["check_out_date"].to_i > 0
+      number_of_day = check_date_diff(params[:booking]["check_in_date"],params[:booking]["check_out_date"])
+      params[:booking][:cost] = number_of_day * room.rate
+    end
+    
     @booking = Booking.new(booking_params)
     # byebug  
     if @booking.save
@@ -32,10 +36,19 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @guest_id = session[:user]
+    @room_id = @booking.room.id
   end
 
   def update
     booking = Booking.find(params[:id])
+    room= Room.find(params[:booking][:room_id])
+
+    if params[:booking]["check_in_date"].to_i > 0  && params[:booking]["check_out_date"].to_i > 0
+      number_of_day = check_date_diff(params[:booking]["check_in_date"],params[:booking]["check_out_date"])
+      params[:booking][:cost] = number_of_day * room.rate
+    end
+ 
     booking.update(booking_params)
     booking.save 
     redirect_to booking_path(booking)

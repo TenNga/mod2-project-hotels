@@ -20,6 +20,9 @@
   <%@guest.reviews.each do |review|%>
   <div class="ui card">
           <div class="content">
+            <div class="card-image">
+              <img src=<%=review.hotel.image%> alt="">
+            </div>
             <div class="header"><%=review.title%></div>
             <div class="meta"><%=review.hotel.name%>, <%=review.hotel.city%></div>
             <div class="meta"><%=review.created_at.strftime("%B %d %Y")%></div>

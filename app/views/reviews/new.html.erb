@@ -3,8 +3,6 @@
             <h1>New Review</h1>
     </div>
 
-    <hr>
-
     <div class="menu-container">
             <div class="top-menu">
                 <% if session[:user]%>
@@ -38,23 +36,35 @@
     <% end %>
 </div>
 
-<div class="review-form">
+
     <%=form_for @review do |review|%>
+    <div class="review-form">
         <div>
-        <%=review.label "Title", class: "label"%>
+        <%=review.label "Title", class: "review-label"%> 
+        </div>
+        <div>
         <%=review.text_field :title, placeholder: "Title", class: "review-field"%> 
         </div>
         <div>
-        <%=review.label "Star", class: "label"%> <br>
+        <%=review.label "Star", class: "review-label"%>
+        </div>
+        <div>
         <%=review.select :star, [1,2,3,4,5],{},class: "review-select"%> 
         </div>
-        <br>
+        
         <div>
-        <%=review.label "Content", class: "label"%>
+        <%=review.label "Content", class: "review-label"%>
+        </div>
+        <div>
         <%=review.text_area :content, placeholder: "Content", class: "review-field"%> <br>
         </div>
         <%=review.hidden_field :hotel_id, :value=> @hotel.id%>
-        <span><i class="paper plane outline icon"></i></span><%=review.submit "Post Review"%>
-    <%end%>
-</div>
+    </div>
+        <div class="review-post-button">
+           <span><i class="paper plane outline icon"></i></span><%=review.submit "Post-Review", class: "review-post"%> 
+        </div>
+        
+    
+  <%end%>
+
 </div>

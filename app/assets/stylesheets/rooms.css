@@ -44,3 +44,7 @@
     padding: 15px 0px;
     color: white;
 }
+.room-show-rate{
+    color: red;
+    font-weight: bolder;
+}

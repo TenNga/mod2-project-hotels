@@ -1,16 +1,17 @@
-<div class="full-container">
-    <h1>Bookings#edit</h1>
-    <p>Find me in app/views/bookings/edit.html.erb</p>
-    <hr>
+<div class="booking-full-container">
+    <div class="booking-heading">
+        <h1>Edit Booking</h1>
+        <p>We value your satisfaction</p>
+    </div>
     <%= form_for @booking do |f|%>
         <%= f.hidden_field :guest_id, :value => @guest_id%>
         <%= f.hidden_field :room_id, :value => @room_id%>
-        <%= f.label "Number of Guests"%>
-        <%= f.number_field :number_of_guest %> <hr> <br>
-        <%= f.label "check In Date"%>
-        <%= f.date_field :check_in_date%> <hr> <br>
-        <%= f.label "check Out Date"%>
-        <%= f.date_field :check_out_date%> <hr> <br>
+        <%= f.label "Number of Guests", class: "label"%>
+        <%= f.number_field :number_of_guest , class: "booking-field"%><br>
+        <%= f.label "check In Date", class: "label"%>
+        <%= f.date_field :check_in_date,:value => Date.parse(@booking.check_in_date), class: "booking-field"%> <br>
+        <%= f.label "check Out Date", class: "label"%>
+        <%= f.date_field :check_out_date, :value => Date.parse(@booking.check_out_date), class: "booking-field"%> <br>
         <%= f.hidden_field :booking_date, :value => Date.today%>
         <%= f.hidden_field :cost, :value => 0%>
         <%= f.submit "Submit Change"%>

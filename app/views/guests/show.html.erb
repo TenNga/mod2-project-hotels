@@ -6,7 +6,7 @@
       <div class="top menu" style="text-align:right; margin:5px 0px">
           <% if session[:user]%>
           <button class="ui black basic button" disabled>
-              <%=Guest.find(session[:user]).first_name%>
+              <%=Guest.find(session[:user]).first_name.upcase%>
           </button>
           <button class="ui inverted red button">
                   <%= link_to "LOGOUT", logout_session_path, method: :get%>
@@ -40,7 +40,7 @@
       <hr>
           <div class="card">
             <div class="content">
-            <a href="https://media-api.xogrp.com/images/9a506749-95e9-47cf-857e-5374f2205b93~rs_768.h" target="_blank"> <img class="right floated mini ui image" src="https://media-api.xogrp.com/images/9a506749-95e9-47cf-857e-5374f2205b93~rs_768.h" ></a>
+            <a href=<%=booking.room.hotel.image%> target="_blank"> <img class="right floated mini ui image" src=<%=booking.room.hotel.image%>  ></a>
               <div class="header">
                   Hotel Name: <%= link_to booking.room.hotel.name, hotel_path(booking.room.hotel)%>
               </div>

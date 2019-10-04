@@ -35,7 +35,6 @@
                <%else%>
                    <h1>All Hotels</h1>
                <%end%>
-        <br>
         <div class="hotel-list-container">
             <div class="ui link cards">
                 <% @hotels.each do |hotel|%>
@@ -58,7 +57,7 @@
                           <%= room.hotel.city%>
                         </div>
                         <div class="room-rate">
-                            <div class="description">
+                            <div class="room-description">
                                     $<%= room.rate%> / day
                             </div>
                         </div>
@@ -84,3 +83,5 @@
         </ul>
         <p>Copy right c Neeraj & Karma</p>
     </div>
+    
+          

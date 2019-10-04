@@ -13,7 +13,7 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
-.label{
+.review-label{
     display: inline-block;
     font-weight: bold;
     font-size: 14px;
@@ -30,5 +30,33 @@
     border-radius: 8px;
     box-shadow: 1px 1px 9px grey;
     color: red;
+}
+.review-form{
+    display: grid;
+    grid-template-columns: 20% auto;
+    width: 50%;
+    margin: 0px auto;
+    align-items: center;
+}
+.review-header h3{
+    font-size: 25px;
+    font-weight: bolder;
+    
+}
+.review-post-button{
+    display: block;
+   border: 2px solid rgb(45, 135, 232);
+   border-radius: 8px;
+    margin: 0px auto;
+    width: 200px;
+    cursor: pointer;
+}
+.review-post-button:hover{
+    font-weight: bolder;
+}
+.review-post {
+    width: 100px;
+    color: rgb(45, 135, 232);
+    cursor: pointer;
 }
 

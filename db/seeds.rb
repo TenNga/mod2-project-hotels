@@ -9,9 +9,9 @@ require 'csv'
 
 Hotel.destroy_all
 Room.destroy_all
-# Review.destroy_all
-# Booking.destroy_all
-# Guest.destroy_all
+Review.destroy_all
+Booking.destroy_all
+Guest.destroy_all
 
 # h1 = Hotel.create!(image: "", name: "Sheraton", city: "London", country: "England")
 # h2 = Hotel.create!(image: "", name: "Hilton", city: "Sydney", country: "Australia")

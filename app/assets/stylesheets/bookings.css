@@ -21,7 +21,7 @@
     box-sizing: border-box;
 }
 .label{
-    display: block;
+    display: inline-block;
     font-weight: bold;
     font-size: 14px;
     text-transform: uppercase;
