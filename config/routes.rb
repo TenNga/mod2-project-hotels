@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'sessions#new', as: 'new_session'
+  get '/', to:'sessions#new', as: 'new_session'
   resources :sessions, only: [:index,:new, :create]
   get '/sessions/logout', in: 'sessions#logout', as: 'logout_session'
   resources :home_pages, only: [:index]
