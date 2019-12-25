@@ -20,3 +20,6 @@ module HotelBooking
     # the framework and any gems in your application.
   end
 end
+
+# config/application.rb
+config.assets.initialize_on_precompile = false
